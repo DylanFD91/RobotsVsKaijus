@@ -9,11 +9,12 @@ namespace RobotsvsDinosaurs
     class Fleet
     {
         //Member Variables
-        //Constructor
-        //Methods
+        public List<Robot> robots = new List<Robot>();//fleet list storage(Complete)
 
-        public List<Robot> robots = new List<Robot>();
-        public Fleet()
+
+
+        //Constructor
+        public Fleet()//creates the fleet(Complete)
         {
             for (int index = 0; index < 3; index++)
             {
@@ -22,7 +23,11 @@ namespace RobotsvsDinosaurs
             }
             PrintRobotFleet(robots);
         }
-        public void PrintRobotFleet(List<Robot> robotNames)
+
+
+
+        //Methods
+        public void PrintRobotFleet(List<Robot> robotNames)//prints the fleet info(Complete)
         {
             foreach (Robot robot in robotNames)
             {

@@ -18,7 +18,7 @@ namespace RobotsvsDinosaurs
         public string dinoWeapon;
 
         //Constructor
-        public Dinosaur()
+        public Dinosaur()//dinosaur constructor(Complete)
         {
             DinoNamer();//calls the dino name method
             dinoHealth = rnd.Next(70, 126);//allows there to be a randomized number for health/energy
@@ -27,15 +27,19 @@ namespace RobotsvsDinosaurs
             dinoWeapon = "Claws";
             dinosaurWeapon = new Weapon();//calls the weapon class and creates a weapon object
         }
+
+
+
         //Methods
-        public void DinoNamer()//Names your dinosaur
+        public void DinoNamer()//Names your dinosaur(Complete)
         {
             Console.WriteLine("\nWhat do you want your dinosaur name to be");
             dinoName = Console.ReadLine();
         }
-        public void DinoAttack()
+        public void DinoAttack()//Attack method()
         {
-
+            Console.WriteLine("\nPlease choose what Robot you would like to attack: ");
+            Console.ReadLine();
         }
 
         /*public void Attack()
