@@ -24,20 +24,7 @@ namespace RobotsvsDinosaurs
 
         public void SetWeaponPower()
         {
-            weaponPower = rnd.Next(25, 76);
+            weaponPower = rnd.Next(50, 76);
         }
-        /*public void Attack()
-        {
-            //if statement?
-            if (Weapon attackWithWeapon = true)
-            {
-                attackWithWeapon -= targetHealth;
-                attackWithWeapon -= attackerEnergy;
-                Console.WriteLine(targetAttacked + " has just been attacked for " + resultOfAttack + "!");
-                Console.ReadLine();
-            }
-
-            // Weapon attackWithWeapon -= 
-        }*/
     }
 }

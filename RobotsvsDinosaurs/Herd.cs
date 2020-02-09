@@ -20,15 +20,18 @@ namespace RobotsvsDinosaurs
                 Dinosaur dino = new Dinosaur();
                 dinosaurs.Add(dino);
             }
+            PrintDinosaurHerd(dinosaurs);
         }
         public void PrintDinosaurHerd(List<Dinosaur> dinosaurNames)
         {
             foreach(Dinosaur dinosaur in dinosaurNames)
             {
-                Console.WriteLine(dinosaur.dinoName);
-                Console.WriteLine(dinosaur.dinoHealth);
-                Console.WriteLine(dinosaur.dinoType);
-                Console.WriteLine(dinosaur.dinoEnergy);
+                Console.WriteLine("\nYour Dinosaurs Name is: " + dinosaur.dinoName);
+                Console.WriteLine("Your Dinosaurs Health is: " + dinosaur.dinoHealth);
+                Console.WriteLine("Your Dinosaurs Type is: " + dinosaur.dinoType);
+                Console.WriteLine("Your Dinosaurs Energy is: " + dinosaur.dinoEnergy);
+                Console.WriteLine("Your Dinosaurs Weapon is: " + dinosaur.dinoWeapon);
+                Console.WriteLine("Your Dinosaurs Weapon Power is: " + dinosaur.dinosaurWeapon.weaponPower + " and the type is " + dinosaur.dinosaurWeapon.weaponType);
             }
         }
     }

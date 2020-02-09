@@ -11,7 +11,7 @@ namespace RobotsvsDinosaurs
         static void Main(string[] args)
         {
             Herd test = new Herd();
-            Dinosaur test2 = new Dinosaur();
+            Fleet test2 = new Fleet();
             Console.ReadLine();
         }
     }
