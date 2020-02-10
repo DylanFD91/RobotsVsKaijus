@@ -15,7 +15,6 @@ namespace RobotsvsDinosaurs
             Console.ReadLine();
             Battlefield battlefield = new Battlefield();
             battlefield.SimulateProgram();
-            //battlefield.WantToPlayAgain();
             Console.ReadLine();
         }
     }

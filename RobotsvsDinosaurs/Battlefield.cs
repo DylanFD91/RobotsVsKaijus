@@ -37,13 +37,13 @@ namespace RobotsvsDinosaurs
         }
 
 
-        //Lets player choose which dino to attack
+        //Lets player choose which object to attack
         public void RobotTurnChoice(Robot robot)
         {
             Console.WriteLine("\nPlease choose what Kaiju you would like to attack(Please type the dinosaurs name): ");
             foreach (Dinosaur dinosaur in dinosaurHerd.dinosaurs)
             {
-                Console.WriteLine(dinosaur.dinoName + "\n");
+                Console.WriteLine(dinosaur.dinoName + "'s remaining hitpoints " + dinosaur.dinoHealth +"\n");
             }
             string input = Console.ReadLine();
             foreach (Dinosaur dino in dinosaurHerd.dinosaurs.ToList())
@@ -55,22 +55,18 @@ namespace RobotsvsDinosaurs
                     }
             }
         }
-
-
-        //lets player choose which robot to attack
         public void DinosaursTurnChoice(Dinosaur dinosaur)
         {
             Console.WriteLine("\nPlease choose what Robot you would like to attack(Please type the Robots name): ");
             foreach(Robot robot in robotFleet.robots)
             {
-                Console.WriteLine(robot.robotName + "\n");
+                Console.WriteLine(robot.robotName + "'s remaining hitpoints" + robot.robotHealth + "\n");
             }
             string input = Console.ReadLine();
             foreach (Robot robot in robotFleet.robots.ToList())
             {
                 if(robot.robotName == input)
                 {
-                    
                     dinosaur.DinoAttack(robot);
                     RobotDestroyed(robot);
                 }
@@ -98,7 +94,9 @@ namespace RobotsvsDinosaurs
             {
                 case "Y":
                 case "y":
-                    SimulateProgram();
+                    Console.Clear();
+                    Battlefield newGame = new Battlefield();
+                    newGame.SimulateProgram();
                     break;
                 default:
                     Console.WriteLine("\nThankyou for playing!");
@@ -137,6 +135,7 @@ namespace RobotsvsDinosaurs
                 Console.WriteLine("\n");
                 DinosaurWinner();
             }
+            WantToPlayAgain();
         }
     }
 }
