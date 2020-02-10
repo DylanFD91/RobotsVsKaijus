@@ -33,27 +33,15 @@ namespace RobotsvsDinosaurs
         //Methods
         public void DinoNamer()//Names your dinosaur(Complete)
         {
-            Console.WriteLine("\nWhat do you want your dinosaur name to be");
+            Console.WriteLine("\nWhat do you want your Kaiju name to be?");
             dinoName = Console.ReadLine();
         }
-        public void DinoAttack()//Attack method()
+        public void DinoAttack(Robot robot)//Attack method()
         {
-            Console.WriteLine("\nPlease choose what Robot you would like to attack: ");
-            Console.ReadLine();
+            robot.robotHealth -= dinosaurWeapon.weaponPower;
+            Console.WriteLine("\n" + robot.robotName + " has just taken " + dinosaurWeapon.weaponPower + " points of damage.");
+            Console.WriteLine("\n" + robot.robotName + " has " + robot.robotHealth + " hitpoints remaining.");
+            dinoEnergy -= 3;
         }
-
-        /*public void Attack()
-        {
-            //if statement?
-            if (Weapon attackWithWeapon = true)
-            {
-                attackWithWeapon -= targetHealth;
-                attackWithWeapon -= attackerEnergy;
-                Console.WriteLine(targetAttacked + " has just been attacked for " + resultOfAttack + "!");
-                Console.ReadLine();
-            }
-
-            // Weapon attackWithWeapon -= 
-        }*/
     }
 }

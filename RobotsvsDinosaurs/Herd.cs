@@ -11,8 +11,6 @@ namespace RobotsvsDinosaurs
         //Member Variables
         public List<Dinosaur> dinosaurs = new List<Dinosaur>();//herd list storage(Complete)
 
-
-
         //Constructor
         public Herd()//creates the herd(Complete)
         {
@@ -21,22 +19,22 @@ namespace RobotsvsDinosaurs
                 Dinosaur dino = new Dinosaur();
                 dinosaurs.Add(dino);
             }
+            Console.WriteLine("-----------------------");
             PrintDinosaurHerd(dinosaurs);
         }
-
-
 
         //Methods
         public void PrintDinosaurHerd(List<Dinosaur> dinosaurNames)//prints the herds info(Complete)
         {
             foreach(Dinosaur dinosaur in dinosaurNames)
             {
-                Console.WriteLine("\nYour Dinosaurs Name is: " + dinosaur.dinoName);
-                Console.WriteLine("Your Dinosaurs Health is: " + dinosaur.dinoHealth);
-                Console.WriteLine("Your Dinosaurs Type is: " + dinosaur.dinoType);
-                Console.WriteLine("Your Dinosaurs Energy is: " + dinosaur.dinoEnergy);
-                Console.WriteLine("Your Dinosaurs Weapon is: " + dinosaur.dinoWeapon);
-                Console.WriteLine("Your Dinosaurs Weapon Power is: " + dinosaur.dinosaurWeapon.weaponPower + " and the type is " + dinosaur.dinosaurWeapon.weaponType);
+                Console.WriteLine("\n\nYour Kaijus Name is: " + dinosaur.dinoName + " Here is his statistics: ");
+                System.Threading.Thread.Sleep(4000);
+                Console.WriteLine("Your Kaijus Health is: " + dinosaur.dinoHealth);
+                Console.WriteLine("Your Kaijus Type is: " + dinosaur.dinoType);
+                Console.WriteLine("Your Kaijus Energy is: " + dinosaur.dinoEnergy);
+                Console.WriteLine("Your Kaijus Weapon is: " + dinosaur.dinoWeapon);
+                Console.WriteLine("Your Kaijus Weapon Power is: " + dinosaur.dinosaurWeapon.weaponPower + " and the type is " + dinosaur.dinosaurWeapon.weaponType);
             }
         }
     }

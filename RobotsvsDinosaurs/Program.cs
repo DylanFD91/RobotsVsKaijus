@@ -10,8 +10,12 @@ namespace RobotsvsDinosaurs
     {
         static void Main(string[] args)
         {
-            Herd test = new Herd();
-            Fleet test2 = new Fleet();
+            Console.WriteLine("Welcome! to Kaijus vs Robots! Press Enter to Start the game...\n");
+            Console.WriteLine("--------------------------------------------------------------");
+            Console.ReadLine();
+            Battlefield battlefield = new Battlefield();
+            battlefield.SimulateProgram();
+            //battlefield.WantToPlayAgain();
             Console.ReadLine();
         }
     }

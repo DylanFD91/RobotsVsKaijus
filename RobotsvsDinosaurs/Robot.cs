@@ -31,13 +31,15 @@ namespace RobotsvsDinosaurs
         //Methods
         public void RobotChoice()//Names your robot(Complete)
         {
-            Console.WriteLine("\nWhat do you want your robot name to be");
+            Console.WriteLine("\nWhat do you want your Robot name to be");
             robotName = Console.ReadLine();
         }
-        public void RobotAttack()//Attack method()
+        public void RobotAttack(Dinosaur dino)//Attack method()
         {
-            Console.WriteLine("\nPlease choose what Robot you would like to attack: ");
-            Console.ReadLine();
+            dino.dinoHealth -= robotWeapon.weaponPower;
+            Console.WriteLine("\n" + dino.dinoName + " has just taken " + robotWeapon.weaponPower + " points of damage");
+            Console.WriteLine("\n" + dino.dinoName + " has " + dino.dinoHealth + " hitpoints remaining");
+            robotPowerLevel -= 3;
         }
     }
 }

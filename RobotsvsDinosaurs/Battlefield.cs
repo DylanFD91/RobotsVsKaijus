@@ -9,119 +9,99 @@ namespace RobotsvsDinosaurs
     class Battlefield
     {
         //Member Variables
-        Herd dinosaurHerd = new Herd();
-        Fleet robotFleet = new Fleet();
-        Robot robot = new Robot();
-        Dinosaur dinosaur = new Dinosaur();
+        public Herd dinosaurHerd = new Herd();
+        public Fleet robotFleet = new Fleet();
         //keeps track of player turns
         public bool dinoTurn = false;
-        public bool robotTurn = false;
-        //keeps track of player scores
-        public int robotPlayerScore = 0;
-        public int dinoPlayerScore = 0;
-
-
-
-        //Constructor
-        // text
-
 
 
         //Methods
-        /*public void Destroyed()//will destroy dinos or robots when health reaches 0
-        {
-            if (List < Dinosaur > dinosaurHerd.dinosaurs.dinoHealth || List < Robot > robotFleet.robots.robotHealth <= 0)
-            {
 
+
+        //These destroy the objects in the list when they reach 0 hitpoints
+        public void RobotDestroyed(Robot robot)
+        {
+            if (robot.robotHealth <= 0)
+            {
+                robotFleet.robots.Remove(robot);
+                Console.WriteLine(robot.robotName + " has just died!\n");
             }
-        }*/
-
-        //something that tracks rounds
-        // do while loop?
-
-
-        //something that can hold each of the constructed objects robots and dinos
-        //this must also hold there values and allow them to be targeted
-        //switch case statement? with maybe a nested if or loop statement
-
-        // something that when all robots or dinos are dead will declare a player to be the winner and increase there score.
-
-
-
-        //this is the method that calls the turn choice methods
-        /*public void ChoiceForAttack(List<Dinosaur> dinosaurNames)
+        }
+        public void DinosaurKilled(Dinosaur dinosaur)
         {
-            if (dinoTurn == true)
+            if (dinosaur.dinoHealth <= 0)
             {
-                DinosaursTurnChoice();
+                dinosaurHerd.dinosaurs.Remove(dinosaur);
+                Console.WriteLine(dinosaur.dinoName + " has just died!\n");
             }
-            else if(robotTurn == true)
+        }
+
+
+        //Lets player choose which dino to attack
+        public void RobotTurnChoice(Robot robot)
+        {
+            Console.WriteLine("\nPlease choose what Kaiju you would like to attack(Please type the dinosaurs name): ");
+            foreach (Dinosaur dinosaur in dinosaurHerd.dinosaurs)
             {
-                RobotsTurnChoice();
+                Console.WriteLine(dinosaur.dinoName + "\n");
             }
-        }*/
-
-
-        //this lets the player decide which dinosaur they want to attack with
-        /*public void DinosaursTurnChoice()
-        {
-            do
+            string input = Console.ReadLine();
+            foreach (Dinosaur dino in dinosaurHerd.dinosaurs.ToList())
             {
-                Console.WriteLine("\nPlease choose what Dinosaur you would like to attack with(Please type your dinosaurs name): ");
-                foreach (List<Dinosaur> dinosaurNames )
-                {
-                    Console.WriteLine(dinosaur.dinoName);
-                }
-                string whichDinoChoice = Console.ReadLine();
-                switch (whichDinoChoice)
-                {
-                    case:
-                        break;
-                    default:
-                        Console.WriteLine("Please try again, it is case sensitive.");
-                        break;
-                }
-            } while (dinoTurn == true);
-
-        }*/
+                    if(dino.dinoName == input)
+                    {
+                        robot.RobotAttack(dino);
+                        DinosaurKilled(dino);
+                    }
+            }
+        }
 
 
-        //this lets the player decide which robot they want to attack with
-        /*public void RobotsTurnChoice()
+        //lets player choose which robot to attack
+        public void DinosaursTurnChoice(Dinosaur dinosaur)
         {
-            do
+            Console.WriteLine("\nPlease choose what Robot you would like to attack(Please type the Robots name): ");
+            foreach(Robot robot in robotFleet.robots)
             {
-                Console.WriteLine("\nPlease choose what Dinosaur you would like to attack with(Please type your dinosaurs name): ");
-                foreach (Robot robots in robotNames)
+                Console.WriteLine(robot.robotName + "\n");
+            }
+            string input = Console.ReadLine();
+            foreach (Robot robot in robotFleet.robots.ToList())
+            {
+                if(robot.robotName == input)
                 {
-                    Console.WriteLine(robot.robotName);
+                    
+                    dinosaur.DinoAttack(robot);
+                    RobotDestroyed(robot);
                 }
-                string whichRobotChoice = Console.ReadLine();
-                switch (whichRobotChoice)
-                {
-                    case:
-                        break;
-                    default:
-                        Console.WriteLine("Please try again, it is case sensitive.");
-                        break;
-                }
-            } while (robotTurn == true);
-        }*/
+            }
+        }
+
+
+        //These Declare the winner of the game
+        public void DinosaurWinner()
+        {
+            Console.WriteLine("\nThe Kaiju Player has won!");
+        }
+        public void RobotWinner()
+        {
+            Console.WriteLine("\nThe Robot Player has won!");
+        }
 
 
         //replay method(Complete)
         public void WantToPlayAgain()//will rerun the program after winner is declared
         {
-            Console.WriteLine("Would you like to play again?(Type Y/N): ");
+            Console.WriteLine("\nWould you like to play again?(Type Y/N): ");
             string playAgain = Console.ReadLine();
             switch (playAgain)
             {
                 case "Y":
                 case "y":
-                    InitializeProgram();
+                    SimulateProgram();
                     break;
                 default:
-                    Console.WriteLine("Thankyou for playing");
+                    Console.WriteLine("\nThankyou for playing!");
                     Console.ReadLine();
                     break;
             }
@@ -129,15 +109,34 @@ namespace RobotsvsDinosaurs
         }
 
 
-        //Runs the program
-        public void InitializeProgram()
+        //this provides logic for checking turns and runs the attack methods
+        public void SimulateProgram()
         {
-
-
-
-
-            
-            WantToPlayAgain();
+            while (dinosaurHerd.dinosaurs.Count >= 1 && robotFleet.robots.Count >= 1)
+            {
+                if (dinoTurn == true)
+                {
+                    Console.WriteLine("\nIt's now Kaijus turn!");
+                    DinosaursTurnChoice(dinosaurHerd.dinosaurs[0]);
+                    dinoTurn = false;
+                }
+                else
+                {
+                    Console.WriteLine("\nIt's now Robots turn!");
+                    RobotTurnChoice(robotFleet.robots[0]);
+                    dinoTurn = true;
+                }
+            }
+            if (dinosaurHerd.dinosaurs.Count <= 0)
+            {
+                Console.WriteLine("\n");
+                RobotWinner();
+            }
+            else
+            {
+                Console.WriteLine("\n");
+                DinosaurWinner();
+            }
         }
     }
 }
