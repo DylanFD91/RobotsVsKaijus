@@ -10,8 +10,9 @@ namespace RobotsvsDinosaurs
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome! to Kaijus vs Robots! Press Enter to Start the game...\n");
             Console.WriteLine("--------------------------------------------------------------");
+            Console.WriteLine("Welcome! to Kaijus vs Robots! Press Enter to Start the game...");
+            Console.WriteLine("--------------------------------------------------------------\n");
             Console.ReadLine();
             Battlefield battlefield = new Battlefield();
             battlefield.SimulateProgram();

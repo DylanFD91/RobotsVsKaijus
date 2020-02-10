@@ -9,22 +9,18 @@ namespace RobotsvsDinosaurs
     class Weapon
     {
         //Member Variables (HAS A)
-        Random rnd = new Random();
         public int weaponPower;
         public string weaponType;
+        public string weaponName;
 
         //Constructors
-        public Weapon()
+        public Weapon(string name, string type, int weaponPower)
         {
-            SetWeaponPower();
-            weaponType = "Slashing";
+            weaponName = name;
+            weaponType = type;
+            this.weaponPower = weaponPower;
         }
-        
-
         //Methods
-        public void SetWeaponPower()
-        {
-            weaponPower = rnd.Next(50, 76);
-        }
+
     }
 }
