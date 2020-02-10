@@ -40,7 +40,7 @@ namespace RobotsvsDinosaurs
         //Lets player choose which object to attack
         public void RobotTurnChoice(Robot robot)
         {
-            Console.WriteLine("\nPlease choose what Kaiju you would like to attack(Please type the dinosaurs name): ");
+            Console.WriteLine("\nPlease choose what Kaiju you would like to attack(Please type the Kaijus name): ");
             foreach (Dinosaur dinosaur in dinosaurHerd.dinosaurs)
             {
                 Console.WriteLine(dinosaur.dinoName + "'s remaining hitpoints " + dinosaur.dinoHealth +"\n");
@@ -48,11 +48,15 @@ namespace RobotsvsDinosaurs
             string input = Console.ReadLine();
             foreach (Dinosaur dino in dinosaurHerd.dinosaurs.ToList())
             {
-                    if(dino.dinoName == input)
-                    {
-                        robot.RobotAttack(dino);
-                        DinosaurKilled(dino);
-                    }
+                if(dino.dinoName == input)
+                {
+                    Console.WriteLine("\n----------------------------");
+                    Console.WriteLine("You have chosen " + input + " to attack!");
+                    Console.WriteLine("----------------------------\n");
+                    robot.RobotAttack(dino);
+                    DinosaurKilled(dino);
+
+                }
             }
         }
         public void DinosaursTurnChoice(Dinosaur dinosaur)
@@ -67,6 +71,9 @@ namespace RobotsvsDinosaurs
             {
                 if(robot.robotName == input)
                 {
+                    Console.WriteLine("\n----------------------------");
+                    Console.WriteLine("You have chosen " + input + " to attack!");
+                    Console.WriteLine("----------------------------\n");
                     dinosaur.DinoAttack(robot);
                     RobotDestroyed(robot);
                 }
@@ -95,6 +102,9 @@ namespace RobotsvsDinosaurs
                 case "Y":
                 case "y":
                     Console.Clear();
+                    Console.WriteLine("Welcome! to Kaijus vs Robots! Press Enter to Start the game...\n");
+                    Console.WriteLine("--------------------------------------------------------------");
+                    Console.ReadLine();
                     Battlefield newGame = new Battlefield();
                     newGame.SimulateProgram();
                     break;
@@ -114,15 +124,23 @@ namespace RobotsvsDinosaurs
             {
                 if (dinoTurn == true)
                 {
-                    Console.WriteLine("\nIt's now Kaijus turn!");
+                    Console.WriteLine("          -----------------------");
+                    Console.WriteLine("          |It's now Kaijus turn!|");
+                    Console.WriteLine("          -----------------------");
                     DinosaursTurnChoice(dinosaurHerd.dinosaurs[0]);
                     dinoTurn = false;
+                    Console.ReadLine();
+                    Console.Clear();
                 }
                 else
                 {
-                    Console.WriteLine("\nIt's now Robots turn!");
+                    Console.WriteLine("          -----------------------");
+                    Console.WriteLine("          |It's now Robots turn!|");
+                    Console.WriteLine("          -----------------------");
                     RobotTurnChoice(robotFleet.robots[0]);
                     dinoTurn = true;
+                    Console.ReadLine();
+                    Console.Clear();
                 }
             }
             if (dinosaurHerd.dinosaurs.Count <= 0)

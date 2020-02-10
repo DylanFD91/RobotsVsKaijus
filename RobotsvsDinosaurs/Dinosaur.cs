@@ -20,7 +20,7 @@ namespace RobotsvsDinosaurs
         //Constructor
         public Dinosaur()
         {
-            DinoNamer();
+            KaijuNamer();
             dinoHealth = rnd.Next(70, 126);
             dinoType = "Kaiju";
             dinoEnergy = rnd.Next(20,41);
@@ -29,7 +29,7 @@ namespace RobotsvsDinosaurs
         }
 
         //Methods
-        public void DinoNamer()
+        public void KaijuNamer()
         {
             Console.WriteLine("\nWhat do you want your Kaiju name to be?");
             dinoName = Console.ReadLine();
