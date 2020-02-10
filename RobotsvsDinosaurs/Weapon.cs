@@ -13,15 +13,15 @@ namespace RobotsvsDinosaurs
         public int weaponPower;
         public string weaponType;
 
-
-        //Constructor
+        //Constructors
         public Weapon()
         {
             SetWeaponPower();
             weaponType = "Slashing";
         }
-        //Methods
+        
 
+        //Methods
         public void SetWeaponPower()
         {
             weaponPower = rnd.Next(50, 76);

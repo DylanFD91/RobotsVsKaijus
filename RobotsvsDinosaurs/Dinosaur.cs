@@ -9,8 +9,8 @@ namespace RobotsvsDinosaurs
     class Dinosaur
     {
         //Member Variables
-        Random rnd = new Random();//declare the random variable
-        public Weapon dinosaurWeapon; //declares weapon variable
+        Random rnd = new Random();
+        public Weapon dinosaurWeapon;
         public string dinoName;
         public int dinoHealth;
         public string dinoType;
@@ -18,25 +18,23 @@ namespace RobotsvsDinosaurs
         public string dinoWeapon;
 
         //Constructor
-        public Dinosaur()//dinosaur constructor(Complete)
+        public Dinosaur()
         {
-            DinoNamer();//calls the dino name method
-            dinoHealth = rnd.Next(70, 126);//allows there to be a randomized number for health/energy
+            DinoNamer();
+            dinoHealth = rnd.Next(70, 126);
             dinoType = "Kaiju";
             dinoEnergy = rnd.Next(20,41);
             dinoWeapon = "Claws";
-            dinosaurWeapon = new Weapon();//calls the weapon class and creates a weapon object
+            dinosaurWeapon = new Weapon();
         }
 
-
-
         //Methods
-        public void DinoNamer()//Names your dinosaur(Complete)
+        public void DinoNamer()
         {
             Console.WriteLine("\nWhat do you want your Kaiju name to be?");
             dinoName = Console.ReadLine();
         }
-        public void DinoAttack(Robot robot)//Attack method()
+        public void DinoAttack(Robot robot)
         {
             robot.robotHealth -= dinosaurWeapon.weaponPower;
             Console.WriteLine("\n" + robot.robotName + " has just taken " + dinosaurWeapon.weaponPower + " points of damage.");

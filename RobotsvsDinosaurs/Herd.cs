@@ -9,10 +9,10 @@ namespace RobotsvsDinosaurs
     class Herd
     {
         //Member Variables
-        public List<Dinosaur> dinosaurs = new List<Dinosaur>();//herd list storage(Complete)
+        public List<Dinosaur> dinosaurs = new List<Dinosaur>();
 
         //Constructor
-        public Herd()//creates the herd(Complete)
+        public Herd()
         {
             for(int index = 0; index < 3; index++)
             {
@@ -24,7 +24,7 @@ namespace RobotsvsDinosaurs
         }
 
         //Methods
-        public void PrintDinosaurHerd(List<Dinosaur> dinosaurNames)//prints the herds info(Complete)
+        public void PrintDinosaurHerd(List<Dinosaur> dinosaurNames)
         {
             foreach(Dinosaur dinosaur in dinosaurNames)
             {

@@ -17,7 +17,7 @@ namespace RobotsvsDinosaurs
         public string robotWeaponType;
 
         //Constructor
-        public Robot()//robot constructor(Complete)
+        public Robot()
         {
             RobotChoice();
             robotHealth = rnd.Next(70, 126);
@@ -25,16 +25,13 @@ namespace RobotsvsDinosaurs
             robotWeaponType = "Plasma Sword";
             robotWeapon = new Weapon();
         }
-
-
-
         //Methods
-        public void RobotChoice()//Names your robot(Complete)
+        public void RobotChoice()
         {
             Console.WriteLine("\nWhat do you want your Robot name to be");
             robotName = Console.ReadLine();
         }
-        public void RobotAttack(Dinosaur dino)//Attack method()
+        public void RobotAttack(Dinosaur dino)
         {
             dino.dinoHealth -= robotWeapon.weaponPower;
             Console.WriteLine("\n" + dino.dinoName + " has just taken " + robotWeapon.weaponPower + " points of damage");

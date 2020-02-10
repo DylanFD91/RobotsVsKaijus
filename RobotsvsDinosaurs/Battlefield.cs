@@ -85,8 +85,8 @@ namespace RobotsvsDinosaurs
         }
 
 
-        //replay method(Complete)
-        public void WantToPlayAgain()//will rerun the program after winner is declared
+        //replay method
+        public void WantToPlayAgain()
         {
             Console.WriteLine("\nWould you like to play again?(Type Y/N): ");
             string playAgain = Console.ReadLine();
@@ -107,7 +107,7 @@ namespace RobotsvsDinosaurs
         }
 
 
-        //this provides logic for checking turns and runs the attack methods
+        //This loops the game until a winner is declared
         public void SimulateProgram()
         {
             while (dinosaurHerd.dinosaurs.Count >= 1 && robotFleet.robots.Count >= 1)
