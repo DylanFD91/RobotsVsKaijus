@@ -55,7 +55,6 @@ namespace RobotsvsDinosaurs
                     Console.WriteLine("----------------------------\n");
                     robot.RobotAttack(dino);
                     DinosaurKilled(dino);
-
                 }
             }
         }

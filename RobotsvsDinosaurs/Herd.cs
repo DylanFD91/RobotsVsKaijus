@@ -34,7 +34,7 @@ namespace RobotsvsDinosaurs
             {
                 Console.WriteLine("\nYour Kaijus Name is: " + dinosaur.dinoName);
                 Console.WriteLine("Here is his statistics: ");
-                System.Threading.Thread.Sleep(3000);
+                //System.Threading.Thread.Sleep(3000);
                 Console.WriteLine("Your Kaijus Health is: " + dinosaur.dinoHealth);
                 Console.WriteLine("Your Kaijus Type is: " + dinosaur.dinoType);
                 Console.WriteLine("Your Kaijus Energy is: " + dinosaur.dinoEnergy);

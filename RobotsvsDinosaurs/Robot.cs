@@ -9,7 +9,6 @@ namespace RobotsvsDinosaurs
     class Robot
     {
         //Member Variables
-        Random rnd = new Random();
         public Weapon robotWeapon;
         public string robotName;
         public int robotHealth;
@@ -20,8 +19,8 @@ namespace RobotsvsDinosaurs
         public Robot()
         {
             RobotChoice();
-            robotHealth = rnd.Next(70, 126);
-            robotPowerLevel = rnd.Next(20, 41);
+            robotHealth = new Random().Next(70, 126);
+            robotPowerLevel = new Random().Next(20, 41);
             RobotArsenal();
         }
         //Methods
