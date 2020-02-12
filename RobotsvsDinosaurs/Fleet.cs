@@ -34,7 +34,7 @@ namespace RobotsvsDinosaurs
             {
                 Console.WriteLine("\nYour Robots Name is: " + robot.robotName);
                 Console.WriteLine("Here is his statistics: ");
-                //System.Threading.Thread.Sleep(3000);
+                System.Threading.Thread.Sleep(3000);
                 Console.WriteLine("Your Robots Health is: " + robot.robotHealth);
                 Console.WriteLine("Your Robots Energy is: " + robot.robotPowerLevel);
                 Console.WriteLine("Your Robots Weapon is: " + robot.robotWeapon.weaponName);
